@@ -1,0 +1,11 @@
+def solution(s):
+    num = list(str(s))
+    a = ""
+    
+    if num[0] == "-":
+        for i in range(1, len(num)):
+            a += num[i]
+        return -int(a)            
+        
+    else:
+        return int(s)
