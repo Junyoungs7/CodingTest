@@ -1,0 +1,14 @@
+def solution(phone_number):
+    b = list(phone_number)
+    
+    for idx, i in enumerate(b[:-4]):
+        b[idx] = "*"
+    
+    return "".join(b)
+    
+    
+    
+    ------------------------ or
+    
+    def hide_numbers(s):
+    return "*"*(len(s)-4) + s[-4:]
