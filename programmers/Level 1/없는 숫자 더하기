@@ -1,0 +1,7 @@
+def solution(numbers):
+    check = 0
+    for i in range(0, 10):
+        check += i
+    
+    return check - sum(numbers)
+    
