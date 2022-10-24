@@ -1,0 +1,20 @@
+def solution(n):
+    answer = 0
+    num = 10
+    a = list(str(n))
+    b = list(map(int,a))
+    c = list(reversed(b))
+    d = list(sorted(c))
+    
+    for i in d:
+        answer += i*num
+        num *= 10
+    
+    return answer/10
+    
+    ----------------------------- or
+    
+    def solution(n):
+    ls = list(str(n))
+    ls.sort(reverse = True)
+    return int("".join(ls))
