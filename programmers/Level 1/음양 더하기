@@ -1,0 +1,12 @@
+def solution(absolutes, signs):
+    for i in range(0, len(absolutes)):
+        if not signs[i]:
+            absolutes[i] = -(absolutes[i])
+    answer = sum(absolutes)
+    return answer
+    
+    ------------------------ or 
+    
+  
+def solution(absolutes, signs):
+    return sum(absolutes if sign else -absolutes for absolutes, sign in zip(absolutes, signs))
