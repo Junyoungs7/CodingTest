@@ -1,0 +1,9 @@
+def solution(s):
+    if len(s) == 6 or len(s) == 4:
+        return s.isdigit()
+    else:
+        return False
+    --------------------------- or
+    
+    def alpha_string46(s):
+    return s.isdigit() and len(s) in (4, 6)
