@@ -1,0 +1,39 @@
+def solution(answers):
+    answer = []
+    leng = len(answers)
+    player1 = ([1, 2, 3, 4, 5] * leng)[:leng]
+    player2 = ([2, 1, 2, 3, 2, 4, 2, 5]* leng)[:leng]
+    player3 = ([3, 3, 1, 1, 2, 2, 4, 4, 5, 5]* leng)[:leng]
+    count1 = 0
+    count2 = 0
+    count3 = 0
+    countArr = []
+    print(player1)
+    for i, j in zip(answers, player1):
+        if i == j:
+            count1 += 1
+    countArr.append(count1)
+    for i, j in zip(answers, player2):
+        if i == j:
+            count2 += 1
+    countArr.append(count2)
+    for i, j in zip(answers, player3):
+        if i == j:
+            count3 += 1
+    countArr.append(count3)
+    
+    result = countArr.index(min(countArr))
+    if count1 == count2 and count1 == count3:
+        return [1,2,3]
+    elif count1 == count2 and count1 > count3:
+        return [1,2]
+    elif count1 == count3 and count1 > count2:
+        return [1,3]
+    elif count2 == count3 and count2 > count1:
+        return [2,3]
+    elif count1 > count2 and count1 > count3:
+        return [1]
+    elif count2 > count1 and count2 > count3:
+        return [2]
+    elif count3 > count1 and count3 > count2:
+        return [3]
