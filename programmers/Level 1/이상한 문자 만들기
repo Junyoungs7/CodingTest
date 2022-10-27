@@ -1,0 +1,12 @@
+def solution(s):
+    a = s.split(' ')
+    for i in range(len(a)):
+        b = list(a[i])
+        for j in range(len(b)):
+            if j % 2 == 0:
+                c = b[j].upper()
+                b[j] = c
+            else:
+                b[j] = b[j].lower()
+        a[i] = ''.join(b)
+    return ' '.join(a)
