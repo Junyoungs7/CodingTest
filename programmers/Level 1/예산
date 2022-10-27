@@ -1,0 +1,9 @@
+def solution(d, budget):
+    result = 0
+    for i in sorted(d):
+        budget -= i
+        if budget >= 0:
+            result += 1
+        else:
+            break
+    return result
