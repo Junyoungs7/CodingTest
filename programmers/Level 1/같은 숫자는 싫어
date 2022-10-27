@@ -1,0 +1,8 @@
+def solution(arr):
+    answer = []
+    char = None
+    for i in arr:
+        if char != i:
+            answer.append(i)
+            char = i
+    return answer
