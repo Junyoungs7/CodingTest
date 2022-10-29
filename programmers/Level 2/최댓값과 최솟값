@@ -1,0 +1,9 @@
+def solution(s):
+    a = s.split(" ")
+    b = []
+    for i in range(len(a)):
+        a[i] = int(a[i])
+    b.append(min(a))
+    b.append(max(a))
+    
+    return ' '.join(map(str,b))
