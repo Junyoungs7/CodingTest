@@ -1,0 +1,8 @@
+def solution(brown, yellow):
+    count = brown + yellow
+    for i in range(1, count+1):
+        if count % i == 0:
+            width = count / i
+            if width >= i and 2*width + 2*i == brown +4:
+                return [width, i]
+                
