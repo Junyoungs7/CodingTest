@@ -1,0 +1,10 @@
+def solution(s):
+    count = 0
+    num = 0
+    while s != "1":
+        a = s.replace("0", "")
+        leng = len(a)
+        num += len(s) - leng
+        s = format(leng, 'b')
+        count += 1
+    return [count, num]
