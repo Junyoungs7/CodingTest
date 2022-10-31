@@ -1,0 +1,6 @@
+def solution(s):
+    a = list(s.split(" "))
+    for i in range(len(a)):
+        a[i] = a[i].capitalize()
+    
+    return ' '.join(a)
