@@ -1,0 +1,20 @@
+n = input()
+n2 = input()
+
+m = input()
+m2 = input()
+
+mlist = m2.split(" ")
+nlist = n2.split(" ")
+
+nDic = {}
+mDic = {}
+answer = ""
+
+for i in nlist:
+  nDic[i] = nDic.get(i, 0) + 1
+
+for i in mlist:
+  answer += str(nDic.get(i,0))+" "
+
+print(answer)
