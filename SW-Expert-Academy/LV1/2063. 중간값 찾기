@@ -1,0 +1,5 @@
+T = int(input())
+# 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
+data = sorted(list(map(int, input().split())))
+mid = (T-1)//2
+print(data[mid])
