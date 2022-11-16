@@ -1,0 +1,10 @@
+for test_case in range(1, T + 1):
+    data = input()
+    check = ""
+    
+    for i in data:
+        check += i
+        leng = len(check)
+        if check == data[leng:leng+leng]:
+            break
+    print('#{} {}'.format(test_case, len(check)))
