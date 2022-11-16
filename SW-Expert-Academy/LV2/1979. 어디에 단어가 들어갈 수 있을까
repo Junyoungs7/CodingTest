@@ -1,0 +1,32 @@
+for test_case in range(1, T + 1):
+    n, k = map(int, input().split())
+    data = []
+    check= "1"*k
+    count = 0
+    
+    for i in range(n):
+        data.append(input())
+        
+    for i in range(n):
+        row = ''.join(data[i]).replace(" ","")
+        row = row.split('0')
+        count += row.count(check)
+        
+    col = []
+    for i in data:
+        i = i.replace(" ","")
+        col.append(list(i))
+        
+    b = []
+    for i in range(n):
+        a = []
+        for j in range(n):
+            a.append(col[j][i])
+        b.append(a)
+        
+    for i in b:
+        c = ''.join(i)
+        d = c.split('0')
+        count += d.count(check)
+        
+    print(f"#{test_case} {count}")
