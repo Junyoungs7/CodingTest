@@ -1,0 +1,22 @@
+T = int(input())
+# 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
+data =[2, 3, 5, 7, 11]
+for test_case in range(1, T + 1):
+    n = int(input())
+    count = 0
+    result = ""
+    
+    counting = [0, 0, 0, 0, 0]
+    while True:
+        if n == 1:
+            break
+        elif (n % data[count]) == 0:
+            n = n // data[count]
+            counting[count] += 1
+        else:
+            count += 1
+            if count > 4:
+                count = 0
+    result = ' '.join(map(str, counting))
+    print(f"#{test_case} {result}")
+            
