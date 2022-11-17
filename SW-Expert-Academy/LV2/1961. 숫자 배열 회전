@@ -1,0 +1,29 @@
+T = int(input())
+
+def rotation(data, n):
+    result = []
+    for i in range(n):
+        temp = []
+        for j in range(n-1, -1, -1):
+            temp.append(data[j][i])
+        result.append(temp)
+    return result
+# 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
+for test_case in range(1, T + 1):
+    n = int(input())
+    data = []
+    for i in range(n):
+        data.append(list(map(int, input().split())))
+    #90
+    data90 = rotation(data, n)
+    #180
+    data180 = rotation(data90, n)
+    #270
+    data270 = rotation(data180, n)
+    
+    print(f"#{test_case}")
+    for i in range(n):
+        a = ''.join(map(str, data90[i]))
+        b = ''.join(map(str, data180[i]))
+        c = ''.join(map(str, data270[i]))
+        print(f"{a} {b} {c}")
