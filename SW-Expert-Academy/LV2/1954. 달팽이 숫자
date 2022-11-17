@@ -1,0 +1,31 @@
+def make_square(arr, st, length, num):
+    last = st + length - 1
+    for r in range(st, last + 1):
+        arr[st][r] = num
+        num += 1
+    for c in range(st + 1, last + 1):
+        arr[c][last] = num
+        num += 1
+    for r in range(last - 1, st - 1,-1):
+        arr[last][r] = num
+        num += 1
+    for c in range(last - 1, st, -1):
+        arr[c][st] = num
+        num += 1
+    return num
+
+T = int(input())
+# 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
+for test_case in range(1, T + 1):
+    n = int(input())
+    data = [[0] * n for _ in range(n)]
+    
+    num, st = 1, 0
+    while n > 0:
+        num = make_square(data, st, n, num)
+        n -= 2
+        st += 1
+    
+    print(f"#{test_case}")
+    for i in data:
+        print(' '.join(map(str, i)))
