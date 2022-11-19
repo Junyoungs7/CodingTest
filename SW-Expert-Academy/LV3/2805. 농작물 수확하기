@@ -1,0 +1,22 @@
+T = int(input())
+
+for tc in range(1, T + 1):
+    size = int(input())
+    data = []
+    result = 0
+    for i in range(size):
+        data.append(list(map(int, input())))
+    s, e = size//2, size//2
+    
+    for i in range(size):
+        for j in range(s, e+1):
+            result += data[i][j]
+        if i < size // 2:
+            s -= 1
+            e += 1
+        else:
+            s += 1
+            e -= 1
+    print(f"#{tc} {result}")
+        
+    
