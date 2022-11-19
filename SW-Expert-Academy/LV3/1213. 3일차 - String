@@ -1,0 +1,6 @@
+for tc in range(1, 11):
+    n = int(input())
+    string = input()
+    data = input()
+    count = data.count(string)
+    print(f"#{tc} {count}")
