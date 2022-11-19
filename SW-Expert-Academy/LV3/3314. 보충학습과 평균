@@ -1,0 +1,10 @@
+T = int(input())
+for tc in range(1, T+1):
+    data = list(map(int, input().split()))
+
+    for i in range(5):
+        if data[i] < 40:
+            data[i] = 40
+        
+    print(f"#{tc} {sum(data)//5}")
+
