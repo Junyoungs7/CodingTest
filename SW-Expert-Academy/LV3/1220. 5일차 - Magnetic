@@ -1,0 +1,14 @@
+T = 10
+
+for test_case in range(1, T + 1):
+    N = int(input())
+    table = []
+    answer = 0
+    for i in range(N):
+        table.append(list(map(int, input().split())))
+    for i in zip(*table):
+        target = [j for j in i if j != 0]
+        for j in range(len(target)-1):
+            if target[j:j+2] == [1,2]:
+                answer += 1
+    print("#"+str(test_case),answer)
