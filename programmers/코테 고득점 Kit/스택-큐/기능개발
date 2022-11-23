@@ -1,0 +1,18 @@
+def solution(progresses, speeds):
+    result = []
+    while progresses:
+        count = 0
+                
+        for idx, i in enumerate(progresses):
+            progresses[idx] = i + speeds[idx]
+        
+        for i in range(len(progresses)):
+            if progresses[0] >= 100:
+                progresses.pop(0)
+                speeds.pop(0)
+                count += 1
+        
+        if count != 0:
+            result.append(count)
+            
+    return result
