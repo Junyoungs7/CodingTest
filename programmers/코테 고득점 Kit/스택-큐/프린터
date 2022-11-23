@@ -1,0 +1,19 @@
+def solution(priorities, location):
+    stack = [0] * len(priorities)
+    stack[location] = 1
+    result = []
+    while priorities:
+        max_index = priorities.index(max(priorities))
+        for idx, i in enumerate(priorities):
+            if idx != max_index:
+                a = priorities.pop(0)
+                priorities.append(a)
+                s = stack.pop(0)
+                stack.append(s)
+            else:
+                a = priorities.pop(0)
+                s = stack.pop(0)
+                result.append(s)
+                break
+    return result.index(max(result))+1
+                
