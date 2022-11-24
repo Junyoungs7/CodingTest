@@ -1,0 +1,27 @@
+import heapq
+
+def solution(operations):
+    hq = []
+    
+    while operations:
+        command, num = operations.pop(0).split(" ")
+        if command == 'I':
+            heapq.heappush(hq, int(num))
+        else:
+            if hq:
+                if num == '-1':
+                    heapq.heappop(hq)
+                else:
+                    hq = heapq.nlargest(len(hq), hq)[1:]
+                    heapq.heapify(hq)
+            else:
+                continue           
+    if hq:
+        return [max(hq), min(hq)]
+    else:
+        return [0, 0]
+    
+                
+            
+    
+            
