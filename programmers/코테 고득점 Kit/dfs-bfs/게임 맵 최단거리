@@ -1,0 +1,25 @@
+from collections import deque
+
+def solution(maps):
+    move = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+    last_x = len(maps)
+    last_y = len(maps[0])
+    q = deque()
+    q.append((0, 0))
+    
+    while q:
+        x, y = q.popleft()
+        for i in range(4):
+            nx = x + move[i][0]
+            ny = y + move[i][1]
+            if nx < 0 or ny < 0 or nx >= last_x  or ny >= last_y:
+                continue
+            if maps[nx][ny] == 0:
+                continue
+            if maps[nx][ny] == 1:
+                maps[nx][ny] = maps[x][y] + 1
+                q.append((nx, ny))
+    if maps[-1][-1] == 1:
+        return -1
+    else:
+        return maps[-1][-1]
