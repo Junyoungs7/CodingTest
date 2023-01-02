@@ -1,0 +1,24 @@
+# 큐 = 요세푸스
+
+import sys
+input = sys.stdin.readline
+
+n, m = map(int, input().split())
+
+data = []
+result = []
+
+cnt = m
+
+for i in range(n, 0, -1):
+  data.append(i)
+
+while len(data) != 0:
+  i = data.pop()
+  if cnt == 1:
+    result.append(str(i))
+    cnt = m
+  else:
+    data.insert(0,i)
+    cnt -= 1
+print("<", ', '.join(result), ">", sep="")
