@@ -1,0 +1,39 @@
+import sys
+input = sys.stdin.readline
+
+row = [list(map(int, input().split())) for i in range(5)]
+col = list(map(list, zip(*row)))
+
+right, left = [], []
+
+for i in range(len(row)):
+  right.append(row[i][i])
+  left.append(col[i][4-i])
+
+bingo = row+col
+bingo.append(right)
+bingo.append(left)
+
+lst = []
+
+for i in range(5):
+  lst += list(map(int, input().split()))
+n = 0
+for i in lst:
+  n+=1
+  cnt = 0
+  for j in bingo:
+    if i in j:
+      j.remove(i)
+    if j == []:
+      cnt += 1
+  if cnt >= 3:
+    break
+print(n)
+
+
+    
+
+
+
+
