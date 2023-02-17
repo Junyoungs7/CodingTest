@@ -1,0 +1,72 @@
+from collections import deque
+
+data = []
+
+n, m, v = map(int, input().split())
+
+for i in range(m):
+  data.append(list(map(int, input().split())))
+
+graph = [[] for _ in range(n+1)]
+
+for i in data:
+  graph[i[0]].append(i[1])
+  graph[i[1]].append(i[0])
+
+
+for i in range(len(graph)):
+  graph[i] = sorted(graph[i])
+
+
+def dfs(graph, v):
+  result = []
+  queue = deque()
+
+  result.append(v)
+  for i in graph[v]:
+    queue.append(i)
+
+  while queue:
+    a = queue.popleft()
+    if a not in result:
+      result.append(a)
+      for i in graph[a][::-1]:
+        queue.appendleft(i)
+
+  return result
+    
+
+
+
+def bfs(graph, v):
+  queue = deque()
+  result = []
+  
+  for i in graph[v]:
+    queue.append(i)
+  result.append(v)
+  while queue:
+    a = queue.popleft()
+    if a in result:
+      continue
+    result.append(a)
+    for i in graph[a]:
+      queue.append(i)
+
+  return result
+
+answerDFS = dfs(graph, v)
+answerBFS = bfs(graph, v)
+
+
+print(" ".join(map(str, answerDFS)))
+print(" ".join(map(str, answerBFS)))
+
+        
+
+
+
+  
+  
+    
+  
